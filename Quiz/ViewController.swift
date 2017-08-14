@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     ]
     let answers: [String] = [
         "14!",
-        "Monteplier!",
+        "Montpelier!",
         "Grapes!"
     ]
     var currentQuestionIndex: Int = 0
