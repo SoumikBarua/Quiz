@@ -56,22 +56,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="zeh-qj-oBf" firstAttribute="centerX" secondItem="nHU-Fr-0XP" secondAttribute="centerX" id="2Ah-Qp-W3O"/>
-                            <constraint firstItem="AXx-gy-tul" firstAttribute="centerX" secondItem="nHU-Fr-0XP" secondAttribute="centerX" id="3zp-Rn-ITc"/>
                             <constraint firstItem="I44-jO-iri" firstAttribute="top" secondItem="AXx-gy-tul" secondAttribute="bottom" constant="22" id="5ya-DZ-aeA"/>
                             <constraint firstItem="AXx-gy-tul" firstAttribute="top" secondItem="nHU-Fr-0XP" secondAttribute="bottom" constant="172" id="Bmc-9Z-1qO"/>
                             <constraint firstItem="nHU-Fr-0XP" firstAttribute="top" secondItem="zeh-qj-oBf" secondAttribute="bottom" constant="22" id="CH8-ep-QGn"/>
                             <constraint firstItem="zeh-qj-oBf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GNa-JA-GqR"/>
-                            <constraint firstItem="I44-jO-iri" firstAttribute="centerX" secondItem="nHU-Fr-0XP" secondAttribute="centerX" id="WNv-xj-Lp2"/>
+                            <constraint firstItem="nHU-Fr-0XP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hlo-ne-7eg"/>
+                            <constraint firstItem="AXx-gy-tul" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j5u-vn-jFv"/>
                             <constraint firstItem="cg6-Qk-B8q" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="khP-fC-mqT"/>
                             <constraint firstItem="zeh-qj-oBf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="58" id="mXx-lJ-IWR"/>
+                            <constraint firstItem="I44-jO-iri" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pFz-6p-zAl"/>
                             <constraint firstItem="cg6-Qk-B8q" firstAttribute="top" secondItem="zeh-qj-oBf" secondAttribute="top" id="xVm-t0-hk7"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="AXx-gy-tul" id="mzk-5K-ZFi"/>
                         <outlet property="currentQuestionLabel" destination="zeh-qj-oBf" id="O4m-fx-YqO"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="GNa-JA-GqR" id="dUx-Y0-9QI"/>
                         <outlet property="nextQuestionLabel" destination="cg6-Qk-B8q" id="lv7-OT-RLK"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="khP-fC-mqT" id="s2M-1h-DPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
