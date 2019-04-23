@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //@IBOutlet var questionLabel: UILabel!
     @IBOutlet var currentQuestionLabel: UILabel!
     @IBOutlet var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
@@ -29,6 +29,34 @@ class ViewController: UIViewController {
     ]
     var currentQuestionIndex: Int = 0
     
+    // MARK: - View controller lifecycle methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        currentQuestionLabel.text = questions[currentQuestionIndex]
+        
+        updateOffScreenLabel()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        nextQuestionLabel.alpha = 0
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        // To ensure the questions stay out of bounds during screen rotation
+        coordinator.animate(alongsideTransition: nil) { _ in
+            let screenWidth = self.view.frame.size.width
+            self.nextQuestionLabelCenterXConstraint.constant = -screenWidth
+            self.currentQuestionLabelCenterXConstraint.constant = 0
+        }
+    }
+    
+    
+    // MARK: - Button press handling methods
+    
     @IBAction func showNextQuestion(_sender: UIButton) {
         currentQuestionIndex += 1
         if currentQuestionIndex == questions.count {
@@ -46,12 +74,7 @@ class ViewController: UIViewController {
         answerLabel.text = answer
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        currentQuestionLabel.text = questions[currentQuestionIndex]
-        
-        updateOffScreenLabel()
-    }
+    // MARK: - Animation handling methods
     
     func animateLabelTransitions() {
         
@@ -68,6 +91,8 @@ class ViewController: UIViewController {
         self.nextQuestionLabelCenterXConstraint.constant = 0
         self.currentQuestionLabelCenterXConstraint.constant += screenwidth
         
+        
+        // Using UIView static method to create spring animation
         UIView.animate(withDuration: 0.5,
                        delay: 0,
                        usingSpringWithDamping: 0.70,
@@ -81,40 +106,14 @@ class ViewController: UIViewController {
         },
                        completion: { _ in
                         swap(&self.currentQuestionLabel,
-                            &self.nextQuestionLabel)
+                             &self.nextQuestionLabel)
                         swap(&self.currentQuestionLabelCenterXConstraint,
-                            &self.nextQuestionLabelCenterXConstraint)
+                             &self.nextQuestionLabelCenterXConstraint)
                         
                         self.updateOffScreenLabel()
         }
         )
-        
-//        UIView.animate(withDuration: 0.5,
-//                       delay: 0,
-//                       options: [],
-//                       animations: {
-//                        self.currentQuestionLabel.alpha = 0
-//                        self.nextQuestionLabel.alpha = 1
-//
-//                        self.view.layoutIfNeeded()
-//        },
-//                       completion: { _ in
-//                        swap(&self.currentQuestionLabel,
-//                             &self.nextQuestionLabel)
-//                        swap(&self.currentQuestionLabelCenterXConstraint,
-//                             &self.nextQuestionLabelCenterXConstraint)
-//
-//                        self.updateOffScreenLabel()
-//        })
-        
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        nextQuestionLabel.alpha = 0
-    }
-    
     
     func updateOffScreenLabel(){
         let screenwidth = view.frame.width
