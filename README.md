@@ -4,7 +4,7 @@ This is a simple iOS app where the user presses a button which animates the ques
 
 ## Getting Started
 
-This project was created to explore the Xcode workspace and to learn the basics of iOS app building such as **MVC** architectural pattern, **Auto Layout**, outlet and action *connections*, simple animations, and the features of the **Swift** language.
+This project was created to explore the Xcode workspace and to learn the basics of iOS app building such as **MVC** architectural pattern, **Auto Layout**, outlet and action connections, simple animations, and the features of the **Swift** language.
 
 ## App Walkthrough GIF
 
